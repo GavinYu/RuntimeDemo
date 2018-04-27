@@ -17,11 +17,12 @@ const void *s_AgeKey = "s_AgeKey";
 @dynamic age;
 
 - (void)setAge:(NSString *)age {
-    objc_setAssociatedObject(self, s_AgeKey, age, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(age), age, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    
 }
 
 - (NSString *)age {
-    return objc_getAssociatedObject(self, s_AgeKey);
+    return objc_getAssociatedObject(self, @selector(age));
 }
 
 @end
